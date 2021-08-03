@@ -169,6 +169,34 @@
 		max-width: 1400px;
 		margin: 0 auto;
 	}
+	#footer-kalley-blog{
+		height: 24px;
+		width: 100%;
+	}
+	.lat-menu{
+	/*	position: absolute;*/
+	}
+	.tab-categories {
+	    min-height: 555px;
+	    float: right;
+	}
+	.sticky {
+	    position: fixed;
+	    top: 150px;
+	}
+	#banners-carousel{
+		height: 720px;
+	    max-width: 1800px;
+	    width: calc(100% - 8em);
+	    background: #121a82;
+	    padding: 0;
+	    display: block;
+	    margin: 0 auto;
+	    color: white;
+	    font-size: 32px;
+	    padding: 8em;
+	    text-align: center;
+	}
 	@media screen and (max-width: 1280px){
 		#menu-blog li {
 			font-size: 14px;
@@ -207,6 +235,7 @@
 		}
 	}
 </style>
+<div id="banners-carousel"><p>Aquí va un carrusel de banners</p></div>
 <div class="row container-blog">
 	<input checked="checked" id="All" name="categories" type="radio" value="All" />
 	<input id="recetas" name="categories" type="radio" value="recetas" />
@@ -216,7 +245,7 @@
 	<input id="tendencias" name="categories" type="radio" value="tendencias" />
 	<input id="tutoriales" name="categories" type="radio" value="tutoriales" />
 	
-	<div class="col-md-2 lat-menu">
+	<div class="col-md-2 lat-menu" data-sticky>
 		<div class="black" id="menu-blog">
 			<div class="underline" style="transform: translate3d(0px, 0%, 0px);"></div>
 			<div class="underline" style="transform: translate3d(0px, 0%, 0px);"></div>
@@ -330,6 +359,7 @@
 		</div>
 	</div>
 </div>
+<div id="footer-kalley-blog"></div>
 <script>
 	function ul(index) {
 		console.log('click!' + index)
@@ -340,4 +370,16 @@
 			underlines[i].style.transform = 'translate3d(0,' + index * 100 + '%,0)';
 		}
 	}
+
+	window.addEventListener("load", function (o) {
+       $(window).scroll(() => {
+            (topOfFooter = $("#footer-kalley-blog").position().top),
+                (scrollDistanceFromTopOfDoc = $(document).scrollTop() + $(".lat-menu").height() + 150),
+                (scrollDistanceFromTopOfFooter = scrollDistanceFromTopOfDoc - topOfFooter),
+                scrollDistanceFromTopOfDoc > topOfFooter ? $(".lat-menu").css("margin-top", 0 - scrollDistanceFromTopOfFooter) : $(".lat-menu").css("margin-top", 0);
+        })
+       $(window).scroll(function () {
+            $(this).scrollTop() > $("#banners-carousel").outerHeight() + $(".js-mainHeader").height() ? ($(".lat-menu").addClass("sticky"), $(".animation-element").addClass("in-view")) : ($(".lat-menu").removeClass("sticky"), $(".animation-element").removeClass("in-view"));
+        });
+});
 </script>
