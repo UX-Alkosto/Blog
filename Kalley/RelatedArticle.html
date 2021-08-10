@@ -198,6 +198,18 @@
 	    padding: 8em;
 	    text-align: center;
 	}
+	.filters-mobile {
+		overflow: auto;
+    	white-space: nowrap;
+	}
+	.filters-mobile li {
+		display: inline-block;
+		padding: 0 2em;
+		text-align: center;
+	}
+	.container-blog-mobile{
+			display: none;
+	}
 	@media screen and (max-width: 1280px){
 		#menu-blog li {
 			font-size: 14px;
@@ -205,6 +217,12 @@
 		}
 	}
 	@media screen and (max-width: 1007px){
+		.lat-menu {
+			display: none;
+		}
+		.container-blog-mobile{
+			display: block;
+		}
 		#first.related_articles {
 			margin-top: 5em !important;
 		}
@@ -234,6 +252,9 @@
 		.text img {
 			margin: 2em auto;
 		}
+		.filters-mobile li {
+			padding: 0 1em;
+		}
 	}
 </style>
 <div class="row container-blog-mobile">
@@ -244,7 +265,7 @@
 	<input id="ideasconsejos-mobile" name="categories" type="radio" value="ideasconsejos-mobile" />
 	<input id="tendencias-mobile" name="categories" type="radio" value="tendencias-mobile" />
 	<input id="tutoriales-mobile" name="categories" type="radio" value="tutoriales-mobile" />
-	<div id="scrollable-menu">
+	<div id="scrollable-menu" class="col-md-12">
 		<ul class="filters-mobile">
 			<li><label for="All-mobile" onclick="ul(0)">VER TODO</label></li>
 			<li><label for="recetas-mobile" onclick="ul(1)">RECETAS</label></li>
