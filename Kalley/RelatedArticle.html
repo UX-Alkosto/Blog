@@ -1,3 +1,4 @@
+<script type="module" src="https://cdn.jsdelivr.net/gh/ux-alkosto/webcomponents/dist/components.js"></script>
 <style type="text/css">
 	.box_related_content{
 		margin: 2em 0;
@@ -235,6 +236,26 @@
 		}
 	}
 </style>
+<div class="row container-blog-mobile">
+	<input checked="checked" id="All-mobile" name="categories" type="radio" value="All-mobile" />
+	<input id="recetas-mobile" name="categories" type="radio" value="recetas-mobile" />
+	<input id="tecnologia-mobile" name="categories" type="radio" value="tecnologia-mobile" />
+	<input id="hogarcocina-mobile" name="categories" type="radio" value="hogarcocina-mobilea" />
+	<input id="ideasconsejos-mobile" name="categories" type="radio" value="ideasconsejos-mobile" />
+	<input id="tendencias-mobile" name="categories" type="radio" value="tendencias-mobile" />
+	<input id="tutoriales-mobile" name="categories" type="radio" value="tutoriales-mobile" />
+	<div id="scrollable-menu">
+		<ul class="filters-mobile">
+			<li><label for="All-mobile" onclick="ul(0)">VER TODO</label></li>
+			<li><label for="recetas-mobile" onclick="ul(1)">RECETAS</label></li>
+			<li><label for="tecnologia-mobile" onclick="ul(2)">TECNOLOGÍA</label></li>
+			<li><label for="hogarcocina-mobile" onclick="ul(3)">HOGAR Y COCINA</label></li>				
+			<li><label for="ideasconsejos-mobile" onclick="ul(4)">IDEAS Y CONSEJOS</label></li>
+			<li><label for="tendencias-mobile" onclick="ul(5)">TENDENCIAS</label></li>
+			<li><label for="tutoriales-mobile" onclick="ul(6)">TUTORIALES</label></li>
+		</ul>
+	</div>
+</div>
 <div id="banners-carousel"><p>Aquí va un carrusel de banners</p></div>
 <div class="row container-blog">
 	<input checked="checked" id="All" name="categories" type="radio" value="All" />
@@ -264,15 +285,18 @@
 	<div class="col-md-10 tab-categories">
 		<div class="related_articles row posts" id="first">
 			<div class="col-lg-4 post" data-category="recetas">
-				<div class="box_related_content">
-					<div class="image"><button>LEER M&Aacute;S...</button></div>
-					<div class="text">
-						<span>RECETAS</span>
-						<h2>Educational television during COVID-19</h2>
-						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-					</div>
-				</div>
+				<k-blog-article>
+                    <img slot="image" loading="lazy"
+                        src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png"
+                        alt="">
+                    <k-button slot="image" href="#">LEER MÁS...</k-button>
+                    <span slot="text">NOVEDADES</span>
+                    <h2 slot="text">Educational television during COVID-19</h2>
+                    <p slot="text">Countries around the world have responded to coronavirus (COVID19) driven school
+                        closures by adopting remote learning approaches.</p>
+                    <p slot="text" class="author_date">By Jhon Doe | 12 Junio 2020 </p>
+                </k-blog-article>
+	
 			</div>
 			<div class="col-lg-4 post" data-category="tecnologia">
 				<div class="box_related_content">
