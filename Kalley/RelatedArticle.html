@@ -14,7 +14,7 @@
 		z-index: 1;
 		min-width: 180px;
 		padding: 0.75em;
-		border: 4px solid white;
+		border: 3px solid white;
 		border-radius: 30px;
 		background: #063B66;
 		color: white;
@@ -22,7 +22,7 @@
 		font-weight: bold;
 		position: absolute;
 		right: 2em;
-		top: 188px;
+		top: 175px;
 	}
 	.box_related_content button:hover{
 		background:#0F5D68;
@@ -62,11 +62,12 @@
 		text-align: right;
 		margin-bottom: 0;
 	}
-	.box_related_content .image{
-		background-image: url(https://cdn.alkst.co/t8e51a3bf/img/474xt_smr76n_dc688631.jpg);
-		background-size: cover;
-		height: 191px;
-		border-radius: 29px 29px 0 0;
+	.box_related_content img{
+		border-radius: var(--button-radius,28px) var(--button-radius,28px) 0 0;
+    	margin-bottom: 10px;
+    	object-fit: cover;
+    	width: 100%;
+    	height: 180px;
 	}
 	.box_related_content .text{
 		padding: 0 1.75em 1.75em 1.75em;	
@@ -84,6 +85,7 @@
 		width: auto;
 		margin: auto;
 		display: block;
+		height: inherit !important;
 	}
 	.text .row.d-flex{
 		flex-direction: row;
@@ -110,12 +112,23 @@
 	[value="All"]:checked ~ .tab-categories .posts [data-category] {
 	display: block;
 	}
+	[value="All-mobile"]:checked ~ .tab-categories .posts [data-category] {
+	display: block;
+	}
 	[value="tecnologia"]:checked ~ .tab-categories .posts .post:not([data-category~="tecnologia"]),
 	[value="recetas"]:checked ~ .tab-categories .posts .post:not([data-category~="recetas"]),
 	[value="hogarcocina"]:checked ~ .tab-categories .posts .post:not([data-category~="hogarcocina"]),
 	[value="ideasconsejos"]:checked ~ .tab-categories .posts .post:not([data-category~="ideasconsejos"]),
 	[value="tendencias"]:checked ~ .tab-categories .posts .post:not([data-category~="tendencias"]),
 	[value="tutoriales"]:checked ~ .tab-categories .posts .post:not([data-category~="tutoriales"]){
+		display: none;
+	}
+	[value="tecnologia-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="tecnologia-mobile"]),
+	[value="recetas-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="recetas-mobile"]),
+	[value="hogarcocina-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="hogarcocina-mobile"]),
+	[value="ideasconsejos-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="ideasconsejos-mobile"]),
+	[value="tendencias-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="tendencias-mobile"]),
+	[value="tutoriales-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="tutoriales-mobile"]){
 		display: none;
 	}
 	[value="All"]:checked ~ .lat-menu .filters [for="All"],
@@ -125,6 +138,16 @@
 	[value="ideasconsejos"]:checked ~ .lat-menu .filters [for="ideasconsejos"],
 	[value="tendencias"]:checked ~ .lat-menu .filters [for="tendencias"],
 	[value="tutoriales"]:checked ~ .lat-menu .filters [for="tutoriales"]{
+	font-weight: bold;
+	color: #121A82;
+	}
+	[value="All-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="All-mobile"],
+	[value="tecnologia-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="tecnologia-mobile"],
+	[value="recetas-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="recetas-mobile"],
+	[value="hogarcocina-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="hogarcocina-mobile"],
+	[value="ideasconsejos-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="ideasconsejos-mobile"],
+	[value="tendencias-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="tendencias-mobile"],
+	[value="tutoriales-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="tutoriales-mobile"]{
 	font-weight: bold;
 	color: #121A82;
 	}
@@ -201,6 +224,8 @@
 	.filters-mobile {
 		overflow: auto;
     	white-space: nowrap;
+    	padding: 9px 0;
+    	border-bottom: 1px solid #959595;
 	}
 	.filters-mobile li {
 		display: inline-block;
@@ -210,13 +235,45 @@
 	.container-blog-mobile{
 			display: none;
 	}
+	@media screen and (max-width: 1400px){
+		#menu-blog li{
+			padding: 0.5em;
+		}
+		#menu-blog li {
+    		font-size: 15px;
+    	}
+    	.box_related_content img {
+    		height: 150px;
+    	}
+    	.box_related_content button{
+    		top: 150px;
+    	}
+	}
 	@media screen and (max-width: 1280px){
 		#menu-blog li {
 			font-size: 14px;
 			padding: 0.5em;
 		}
 	}
+	@media screen and (max-width: 1199px){
+		.box_related_content button{
+			top: 125px;
+		}
+	}
 	@media screen and (max-width: 1007px){
+		h1.module-title {
+		    margin-bottom: 0.25em !important;
+		}
+		#scrollable-menu {
+		    z-index: 3;
+		    background: white;
+		    width: 100%;
+		    padding: 0 0;
+    		left: 0;
+		}
+		.sticky{
+			top: 0;
+		}
 		.lat-menu {
 			display: none;
 		}
@@ -227,8 +284,7 @@
 			margin-top: 5em !important;
 		}
 		.box_related_content button{
-			top: 164px;
-			right: 1em;
+			right: 8em;
 		}
 		.box_related_content {
 			max-width: 767px;
@@ -237,6 +293,9 @@
 		.box_related_content .image {
 			position: relative;
 		}
+		.tab-categories {
+			float: inherit;
+		}
 	}
 	@media screen and (max-width: 767px){
 		.box_related_content p{
@@ -244,6 +303,9 @@
 		}
 		.text img {
 			max-height: 40px;
+		}
+		.box_related_content button{
+			right: 2em;
 		}
 	@media screen and (max-width: 580px){
 		.text .row.d-flex {
@@ -255,25 +317,28 @@
 		.filters-mobile li {
 			padding: 0 1em;
 		}
+		.filters-mobile{
+			padding: 9px;
+		}
 	}
 </style>
-<div class="row container-blog-mobile">
-	<input checked="checked" id="All-mobile" name="categories" type="radio" value="All-mobile" />
-	<input id="recetas-mobile" name="categories" type="radio" value="recetas-mobile" />
-	<input id="tecnologia-mobile" name="categories" type="radio" value="tecnologia-mobile" />
-	<input id="hogarcocina-mobile" name="categories" type="radio" value="hogarcocina-mobilea" />
-	<input id="ideasconsejos-mobile" name="categories" type="radio" value="ideasconsejos-mobile" />
-	<input id="tendencias-mobile" name="categories" type="radio" value="tendencias-mobile" />
-	<input id="tutoriales-mobile" name="categories" type="radio" value="tutoriales-mobile" />
+<input checked="checked" id="All-mobile" name="categories-mobile" type="radio" value="All-mobile" />
+<input id="recetas-mobile" name="categories-mobile" type="radio" value="recetas-mobile" />
+<input id="tecnologia-mobile" name="categories-mobile" type="radio" value="tecnologia-mobile" />
+<input id="hogarcocina-mobile" name="categories-mobile" type="radio" value="hogarcocina-mobilea" />
+<input id="ideasconsejos-mobile" name="categories-mobile" type="radio" value="ideasconsejos-mobile" />
+<input id="tendencias-mobile" name="categories-mobile" type="radio" value="tendencias-mobile" />
+<input id="tutoriales-mobile" name="categories-mobile" type="radio" value="tutoriales-mobile" />
+<div class="row container-blog-mobile">	
 	<div id="scrollable-menu" class="col-md-12">
 		<ul class="filters-mobile">
-			<li><label for="All-mobile" onclick="ul(0)">VER TODO</label></li>
-			<li><label for="recetas-mobile" onclick="ul(1)">RECETAS</label></li>
-			<li><label for="tecnologia-mobile" onclick="ul(2)">TECNOLOGÍA</label></li>
-			<li><label for="hogarcocina-mobile" onclick="ul(3)">HOGAR Y COCINA</label></li>				
-			<li><label for="ideasconsejos-mobile" onclick="ul(4)">IDEAS Y CONSEJOS</label></li>
-			<li><label for="tendencias-mobile" onclick="ul(5)">TENDENCIAS</label></li>
-			<li><label for="tutoriales-mobile" onclick="ul(6)">TUTORIALES</label></li>
+			<li><label for="All-mobile" onclick="ulmobile(0)">VER TODO</label></li>
+			<li><label for="recetas-mobile" onclick="ulmobile(1)">RECETAS</label></li>
+			<li><label for="tecnologia-mobile" onclick="ulmobile(2)">TECNOLOGÍA</label></li>
+			<li><label for="hogarcocina-mobile" onclick="ulmobile(3)">HOGAR</label></li>				
+			<li><label for="ideasconsejos-mobile" onclick="ulmobile(4)">IDEAS</label></li>
+			<li><label for="tendencias-mobile" onclick="ulmobile(5)">TENDENCIAS</label></li>
+			<li><label for="tutoriales-mobile" onclick="ulmobile(6)">TUTORIALES</label></li>
 		</ul>
 	</div>
 </div>
@@ -296,8 +361,8 @@
 				<li><label for="All" onclick="ul(0)">VER TODO</label></li>
 				<li><label for="recetas" onclick="ul(1)">RECETAS</label></li>
 				<li><label for="tecnologia" onclick="ul(2)">TECNOLOGÍA</label></li>
-				<li><label for="hogarcocina" onclick="ul(3)">HOGAR Y COCINA</label></li>				
-				<li><label for="ideasconsejos" onclick="ul(4)">IDEAS Y CONSEJOS</label></li>
+				<li><label for="hogarcocina" onclick="ul(3)">HOGAR</label></li>				
+				<li><label for="ideasconsejos" onclick="ul(4)">IDEAS</label></li>
 				<li><label for="tendencias" onclick="ul(5)">TENDENCIAS</label></li>
 				<li><label for="tutoriales" onclick="ul(6)">TUTORIALES</label></li>
 			</ul>
@@ -305,20 +370,30 @@
 	</div>
 	<div class="col-md-10 tab-categories">
 		<div class="related_articles row posts" id="first">
+<<<<<<< HEAD
 			<div class="col-lg-4 post" data-category="recetas">
 				<div class="box_related_content">
 					<div class="image"><button>LEER M&Aacute;S...</button></div>
 					<div class="text">
 						<span>TECNOLOGÍA</span>
+=======
+			<div class="col-lg-4 post" data-category="recetas" data-category-mobile="recetas-mobile">
+				<div class="box_related_content">
+					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
+					<button>LEER M&Aacute;S...</button>
+					<div class="text">
+						<span>RECETAS</span>
+>>>>>>> 99d48f281770cf95ce0186f38296c34930493738
 						<h2>Educational television during COVID-19</h2>
 						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
 						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
 					</div>
 				</div>	
 			</div>
-			<div class="col-lg-4 post" data-category="tecnologia">
+			<div class="col-lg-4 post" data-category="tecnologia" data-category-mobile="tecnologia-mobile">
 				<div class="box_related_content">
-					<div class="image"><button>LEER M&Aacute;S...</button></div>
+					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
+					<button>LEER M&Aacute;S...</button>
 					<div class="text">
 						<span>TECNOLOGÍA</span>
 						<h2>Educational television during COVID-19</h2>
@@ -327,31 +402,34 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 post" data-category="hogarcocina">
+			<div class="col-lg-4 post" data-category="hogarcocina" data-category-mobile="hogarcocina-mobile">
 				<div class="box_related_content">
-					<div class="image"><button>LEER M&Aacute;S...</button></div>
+					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
+					<button>LEER M&Aacute;S...</button>
 					<div class="text">
-						<span>HOGAR Y COCINA</span>
+						<span>HOGAR</span>
 						<h2>Educational television during COVID-19</h2>
 						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
 						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 post" data-category="ideasconsejos">
+			<div class="col-lg-4 post" data-category="ideasconsejos" data-category-mobile="ideasconsejos-mobile">
 				<div class="box_related_content">
-					<div class="image"><button>LEER M&Aacute;S...</button></div>
+					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
+					<button>LEER M&Aacute;S...</button>
 					<div class="text">
-						<span>IDEAS Y CONSEJOS</span>
+						<span>IDEAS</span>
 						<h2>Educational television during COVID-19</h2>
 						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
 						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-8 post" data-category="tendencias">
+			<div class="col-lg-8 post" data-category="tendencias" data-category-mobile="tendencias-mobile">
 				<div class="box_related_content oustanding">
-					<div class="image"><button>LEER M&Aacute;S...</button></div>
+					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
+					<button>LEER M&Aacute;S...</button>
 					<div class="text">
 						<div class="row d-flex">
 							<div class="col-md-7">
@@ -365,9 +443,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 post" data-category="recetas">
+			<div class="col-lg-4 post" data-category="recetas" data-category-mobile="recetas-mobile">
 				<div class="box_related_content">
-					<div class="image"><button>LEER M&Aacute;S...</button></div>
+					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
+					<button>LEER M&Aacute;S...</button>
 					<div class="text">
 						<span>RECETAS</span>
 						<h2>Educational television during COVID-19</h2>
@@ -376,9 +455,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 post" data-category="tecnologia">
+			<div class="col-lg-4 post" data-category="tecnologia" data-category-mobile="tecnologia-mobile">
 				<div class="box_related_content">
-					<div class="image"><button>LEER M&Aacute;S...</button></div>
+					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
+					<button>LEER M&Aacute;S...</button>
 					<div class="text">
 						<span>TECNOLOGÍA</span>
 						<h2>Educational television during COVID-19</h2>
@@ -387,9 +467,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 post" data-category="tutoriales">
+			<div class="col-lg-4 post" data-category="tutoriales" data-category-mobile="tutoriales-mobile">
 				<div class="box_related_content">
-					<div class="image"><button>LEER M&Aacute;S...</button></div>
+					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
+					<button>LEER M&Aacute;S...</button>
 					<div class="text">
 						<span>TUTORIALES</span>
 						<h2>Educational television during COVID-19</h2>
@@ -420,8 +501,11 @@
                 (scrollDistanceFromTopOfFooter = scrollDistanceFromTopOfDoc - topOfFooter),
                 scrollDistanceFromTopOfDoc > topOfFooter ? $(".lat-menu").css("margin-top", 0 - scrollDistanceFromTopOfFooter) : $(".lat-menu").css("margin-top", 0);
         })
-       $(window).scroll(function () {
+       	$(window).scroll(function () {
             $(this).scrollTop() > $("#banners-carousel").outerHeight() + $(".js-mainHeader").height() ? ($(".lat-menu").addClass("sticky"), $(".animation-element").addClass("in-view")) : ($(".lat-menu").removeClass("sticky"), $(".animation-element").removeClass("in-view"));
+        });
+        $(window).scroll(function () {
+            $(this).scrollTop() > $(".js-mainHeader").height() ? ($("#scrollable-menu").addClass("sticky"), $(".animation-element").addClass("in-view")) : ($("#scrollable-menu").removeClass("sticky"), $(".animation-element").removeClass("in-view"));
         });
 });
 </script>
