@@ -272,6 +272,9 @@
     	.module-title {
 		    margin: 0 2% .7em 2%;
 		}
+		.owl-carousel .owl-item img {
+    		max-height: 450px !important
+    	}
 	}
 	@media screen and (max-width: 1280px){
 		#menu-blog li {
@@ -362,6 +365,19 @@
 		.box_related_content button{
 			right: 2em;
 		}
+	}
+	@media screen and (max-width: 650px){
+		.owl-carousel.rotativeBanner .owl-nav button.owl-next, .owl-carousel.rotativeBanner .owl-nav button.owl-prev {	
+			    width: 30px;
+			    height: 30px;
+			}
+		.owl-carousel .owl-nav button.owl-next:before, .owl-carousel .owl-nav button.owl-prev:before {
+			font-size:40px;
+		}
+		.owl-carousel .owl-item img {
+    		min-height: 370px;
+    	}
+	}
 	@media screen and (max-width: 580px){
 		.text .row.d-flex {
 			flex-direction: column;
@@ -380,7 +396,7 @@
 <div class="row container-blog-mobile">
 <div class="col-md-12" id="scrollable-menu">
 <ul class="filters-mobile">
-	<li><label id="All-mobile">VER TODO</label></li>
+	<li><label id="All-mobile" class="active">VER TODO</label></li>
 	<li><label id="recetas-mobile">RECETAS</label></li>
 	<li><label id="tecnologia-mobile">TECNOLOG&Iacute;A</label></li>
 	<li><label id="hogarcocina-mobile">HOGAR</label></li>
