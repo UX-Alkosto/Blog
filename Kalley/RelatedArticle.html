@@ -1,6 +1,5 @@
 <script type="module" src="https://cdn.jsdelivr.net/gh/ux-alkosto/webcomponents/dist/components.js"></script>
-<style type="text/css">
-	.box_related_content{
+<style type="text/css">.box_related_content{
 		margin: 2em 0;
 		background: white;
 		border-radius: 29px;
@@ -112,7 +111,7 @@
 	[value="All"]:checked ~ .tab-categories .posts [data-category] {
 	display: block;
 	}
-	[value="All-mobile"]:checked ~ .tab-categories .posts [data-category] {
+	[value="All-mobile"]:checked > .content .tab-categories .posts [data-category] {
 	display: block;
 	}
 	[value="tecnologia"]:checked ~ .tab-categories .posts .post:not([data-category~="tecnologia"]),
@@ -123,14 +122,7 @@
 	[value="tutoriales"]:checked ~ .tab-categories .posts .post:not([data-category~="tutoriales"]){
 		display: none;
 	}
-	[value="tecnologia-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="tecnologia-mobile"]),
-	[value="recetas-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="recetas-mobile"]),
-	[value="hogarcocina-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="hogarcocina-mobile"]),
-	[value="ideasconsejos-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="ideasconsejos-mobile"]),
-	[value="tendencias-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="tendencias-mobile"]),
-	[value="tutoriales-mobile"]:checked ~ .container-blog .tab-categories .posts .post:not([data-category-mobile~="tutoriales-mobile"]){
-		display: none;
-	}
+	label.active,
 	[value="All"]:checked ~ .lat-menu .filters [for="All"],
 	[value="tecnologia"]:checked ~ .lat-menu .filters [for="tecnologia"],
 	[value="recetas"]:checked ~ .lat-menu .filters [for="recetas"],
@@ -138,16 +130,6 @@
 	[value="ideasconsejos"]:checked ~ .lat-menu .filters [for="ideasconsejos"],
 	[value="tendencias"]:checked ~ .lat-menu .filters [for="tendencias"],
 	[value="tutoriales"]:checked ~ .lat-menu .filters [for="tutoriales"]{
-	font-weight: bold;
-	color: #121A82;
-	}
-	[value="All-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="All-mobile"],
-	[value="tecnologia-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="tecnologia-mobile"],
-	[value="recetas-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="recetas-mobile"],
-	[value="hogarcocina-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="hogarcocina-mobile"],
-	[value="ideasconsejos-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="ideasconsejos-mobile"],
-	[value="tendencias-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="tendencias-mobile"],
-	[value="tutoriales-mobile"]:checked ~ .container-blog-mobile .filters-mobile [for="tutoriales-mobile"]{
 	font-weight: bold;
 	color: #121A82;
 	}
@@ -235,24 +217,69 @@
 	.container-blog-mobile{
 			display: none;
 	}
+	.carousel__rotativeBanner .owl-carousel .owl-dots {
+		display: block;
+	    position: absolute;
+	    top: 80%;
+	    right: 6em;
+	}
+	.owl-carousel .owl-dots .owl-dot {
+		width: 28px;
+		display: block;
+	}
+	.owl-carousel .owl-dots .owl-dot span {
+		width: 22px;
+		height: 22px;
+	}
+	.owl-carousel .owl-dots .active span {
+	    background-color: var(--primary-color1) !important;
+	}
+	.owl-carousel .owl-dots .owl-dot span {
+		background-color: white;
+	}
+	.owl-carousel .owl-item img {
+		max-height: 645px !important;
+    	border-radius: 55px;
+    	object-fit: cover;
+    	width: calc(100% - 6em) !important;
+    	margin: 0 auto;
+	}
+	.module-title {
+		margin: 0 10% .7em 10%;
+	}
+	.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+		width: 50px;
+		height: 50px;
+		border-radius: 26px;
+	}
+	.owl-prev {
+	    left: 2em !important;
+	}
+	.owl-next {
+	    right: 2em !important;
+	}
 	@media screen and (max-width: 1400px){
 		#menu-blog li{
 			padding: 0.5em;
+			font-size: 15px;
 		}
-		#menu-blog li {
-    		font-size: 15px;
-    	}
-    	.box_related_content img {
+		.box_related_content img {
     		height: 150px;
     	}
     	.box_related_content button{
     		top: 150px;
     	}
+    	.module-title {
+		    margin: 0 2% .7em 2%;
+		}
 	}
 	@media screen and (max-width: 1280px){
 		#menu-blog li {
 			font-size: 14px;
 			padding: 0.5em;
+		}
+		.carousel__rotativeBanner .owl-carousel .owl-dots {
+			top: 73%;
 		}
 	}
 	@media screen and (max-width: 1199px){
@@ -261,6 +288,14 @@
 		}
 	}
 	@media screen and (max-width: 1007px){
+		.carousel__rotativeBanner .owl-carousel .owl-dots {
+		    top: 0;
+		    position: relative;
+		    right: 0;
+		    display: flex;
+		    align-items: flex-start;
+		    justify-content: end;
+		}
 		h1.module-title {
 		    margin-bottom: 0.25em !important;
 		}
@@ -296,6 +331,26 @@
 		.tab-categories {
 			float: inherit;
 		}
+		.owl-carousel .owl-dots .owl-dot span {
+			width: 21px;
+		    height: 21px;
+		    background-color: #E0E0E0;
+		    margin: 0 4px !important;
+		}
+		.owl-carousel .owl-item img {    
+    		border-radius: 0;
+    		width: 100% !important;
+    	}
+    	.owl-carousel.rotativeBanner .owl-nav button.owl-next, .owl-carousel.rotativeBanner .owl-nav button.owl-prev {
+		    background: white !important;		    
+		    border-radius: 90px;	    
+		    width: 45px;
+		    height: 45px;
+		}
+		.owl-prev {
+		    left: inherit !important;
+		    right: 6em;
+		}
 	}
 	@media screen and (max-width: 767px){
 		.box_related_content p{
@@ -322,166 +377,169 @@
 		}
 	}
 </style>
-<input checked="checked" id="All-mobile" name="categories-mobile" type="radio" value="All-mobile" />
-<input id="recetas-mobile" name="categories-mobile" type="radio" value="recetas-mobile" />
-<input id="tecnologia-mobile" name="categories-mobile" type="radio" value="tecnologia-mobile" />
-<input id="hogarcocina-mobile" name="categories-mobile" type="radio" value="hogarcocina-mobilea" />
-<input id="ideasconsejos-mobile" name="categories-mobile" type="radio" value="ideasconsejos-mobile" />
-<input id="tendencias-mobile" name="categories-mobile" type="radio" value="tendencias-mobile" />
-<input id="tutoriales-mobile" name="categories-mobile" type="radio" value="tutoriales-mobile" />
-<div class="row container-blog-mobile">	
-	<div id="scrollable-menu" class="col-md-12">
-		<ul class="filters-mobile">
-			<li><label for="All-mobile" onclick="ulmobile(0)">VER TODO</label></li>
-			<li><label for="recetas-mobile" onclick="ulmobile(1)">RECETAS</label></li>
-			<li><label for="tecnologia-mobile" onclick="ulmobile(2)">TECNOLOGÍA</label></li>
-			<li><label for="hogarcocina-mobile" onclick="ulmobile(3)">HOGAR</label></li>				
-			<li><label for="ideasconsejos-mobile" onclick="ulmobile(4)">IDEAS</label></li>
-			<li><label for="tendencias-mobile" onclick="ulmobile(5)">TENDENCIAS</label></li>
-			<li><label for="tutoriales-mobile" onclick="ulmobile(6)">TUTORIALES</label></li>
-		</ul>
-	</div>
+<div class="row container-blog-mobile">
+<div class="col-md-12" id="scrollable-menu">
+<ul class="filters-mobile">
+	<li><label id="All-mobile">VER TODO</label></li>
+	<li><label id="recetas-mobile">RECETAS</label></li>
+	<li><label id="tecnologia-mobile">TECNOLOG&Iacute;A</label></li>
+	<li><label id="hogarcocina-mobile">HOGAR</label></li>
+	<li><label id="ideasconsejos-mobile">IDEAS</label></li>
+	<li><label id="tendencias-mobile">TENDENCIAS</label></li>
+	<li><label id="tutoriales-mobile">TUTORIALES</label></li>
+</ul>
 </div>
+</div>
+
+
+
+
 <div id="banners-carousel"><p>Aquí va un carrusel de banners</p></div>
-<div class="row container-blog">
-	<input checked="checked" id="All" name="categories" type="radio" value="All" />
-	<input id="recetas" name="categories" type="radio" value="recetas" />
-	<input id="tecnologia" name="categories" type="radio" value="tecnologia" />
-	<input id="hogarcocina" name="categories" type="radio" value="hogarcocina" />
-	<input id="ideasconsejos" name="categories" type="radio" value="ideasconsejos" />
-	<input id="tendencias" name="categories" type="radio" value="tendencias" />
-	<input id="tutoriales" name="categories" type="radio" value="tutoriales" />
-	
-	<div class="col-md-2 lat-menu" data-sticky>
-		<div class="black" id="menu-blog">
-			<div class="underline" style="transform: translate3d(0px, 0%, 0px);"></div>
-			<div class="underline" style="transform: translate3d(0px, 0%, 0px);"></div>
-			<div class="underline" style="transform: translate3d(0px, 0%, 0px);"></div>
-			<ul class="filters">
-				<li><label for="All" onclick="ul(0)">VER TODO</label></li>
-				<li><label for="recetas" onclick="ul(1)">RECETAS</label></li>
-				<li><label for="tecnologia" onclick="ul(2)">TECNOLOGÍA</label></li>
-				<li><label for="hogarcocina" onclick="ul(3)">HOGAR</label></li>				
-				<li><label for="ideasconsejos" onclick="ul(4)">IDEAS</label></li>
-				<li><label for="tendencias" onclick="ul(5)">TENDENCIAS</label></li>
-				<li><label for="tutoriales" onclick="ul(6)">TUTORIALES</label></li>
-			</ul>
-		</div>
-	</div>
-	<div class="col-md-10 tab-categories">
-		<div class="related_articles row posts" id="first">
-<<<<<<< HEAD
-			<div class="col-lg-4 post" data-category="recetas">
-				<div class="box_related_content">
-					<div class="image"><button>LEER M&Aacute;S...</button></div>
-					<div class="text">
-						<span>TECNOLOGÍA</span>
-=======
-			<div class="col-lg-4 post" data-category="recetas" data-category-mobile="recetas-mobile">
-				<div class="box_related_content">
-					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
-					<button>LEER M&Aacute;S...</button>
-					<div class="text">
-						<span>RECETAS</span>
->>>>>>> 99d48f281770cf95ce0186f38296c34930493738
-						<h2>Educational television during COVID-19</h2>
-						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-					</div>
-				</div>	
-			</div>
-			<div class="col-lg-4 post" data-category="tecnologia" data-category-mobile="tecnologia-mobile">
-				<div class="box_related_content">
-					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
-					<button>LEER M&Aacute;S...</button>
-					<div class="text">
-						<span>TECNOLOGÍA</span>
-						<h2>Educational television during COVID-19</h2>
-						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 post" data-category="hogarcocina" data-category-mobile="hogarcocina-mobile">
-				<div class="box_related_content">
-					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
-					<button>LEER M&Aacute;S...</button>
-					<div class="text">
-						<span>HOGAR</span>
-						<h2>Educational television during COVID-19</h2>
-						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 post" data-category="ideasconsejos" data-category-mobile="ideasconsejos-mobile">
-				<div class="box_related_content">
-					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
-					<button>LEER M&Aacute;S...</button>
-					<div class="text">
-						<span>IDEAS</span>
-						<h2>Educational television during COVID-19</h2>
-						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-8 post" data-category="tendencias" data-category-mobile="tendencias-mobile">
-				<div class="box_related_content oustanding">
-					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
-					<button>LEER M&Aacute;S...</button>
-					<div class="text">
-						<div class="row d-flex">
-							<div class="col-md-7">
-								<span>TENDENCIAS</span>
-								<h2>Educational television during COVID-19</h2>
-								<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.Countries around the world have responded to lorem</p>
-							</div>
-							<div class="col-md-5 d-flex"><img alt="logo" src="https://images.notifications-icommkt.com/logos/kalley_h.jpg" /></div>
-						</div>
-						<p class="author_date">By Jon Doe | 12 Junio 2020</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 post" data-category="recetas" data-category-mobile="recetas-mobile">
-				<div class="box_related_content">
-					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
-					<button>LEER M&Aacute;S...</button>
-					<div class="text">
-						<span>RECETAS</span>
-						<h2>Educational television during COVID-19</h2>
-						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 post" data-category="tecnologia" data-category-mobile="tecnologia-mobile">
-				<div class="box_related_content">
-					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
-					<button>LEER M&Aacute;S...</button>
-					<div class="text">
-						<span>TECNOLOGÍA</span>
-						<h2>Educational television during COVID-19</h2>
-						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 post" data-category="tutoriales" data-category-mobile="tutoriales-mobile">
-				<div class="box_related_content">
-					<img loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" alt="">
-					<button>LEER M&Aacute;S...</button>
-					<div class="text">
-						<span>TUTORIALES</span>
-						<h2>Educational television during COVID-19</h2>
-						<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-						<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+<div class="row container-blog"><input checked="checked" id="All" name="categories" type="radio" value="All" /> <input id="recetas" name="categories" type="radio" value="recetas" /> <input id="tecnologia" name="categories" type="radio" value="tecnologia" /> <input id="hogarcocina" name="categories" type="radio" value="hogarcocina" /> <input id="ideasconsejos" name="categories" type="radio" value="ideasconsejos" /> <input id="tendencias" name="categories" type="radio" value="tendencias" /> <input id="tutoriales" name="categories" type="radio" value="tutoriales" />
+<div class="col-md-2 lat-menu" data-sticky="">
+<div class="black" id="menu-blog">
+<div class="underline" style="transform: translate3d(0px, 0%, 0px);"></div>
+
+<div class="underline" style="transform: translate3d(0px, 0%, 0px);"></div>
+
+<div class="underline" style="transform: translate3d(0px, 0%, 0px);"></div>
+
+<ul class="filters">
+	<li><label for="All" onclick="ul(0)">VER TODO</label></li>
+	<li><label for="recetas" onclick="ul(1)">RECETAS</label></li>
+	<li><label for="tecnologia" onclick="ul(2)">TECNOLOG&Iacute;A</label></li>
+	<li><label for="hogarcocina" onclick="ul(3)">HOGAR</label></li>
+	<li><label for="ideasconsejos" onclick="ul(4)">IDEAS</label></li>
+	<li><label for="tendencias" onclick="ul(5)">TENDENCIAS</label></li>
+	<li><label for="tutoriales" onclick="ul(6)">TUTORIALES</label></li>
+</ul>
 </div>
+</div>
+
+<div class="col-md-10 tab-categories">
+<div class="related_articles row posts" id="first">
+<div class="col-lg-4 post All-mobile recetas-mobile" data-category="recetas">
+<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
+
+<div class="text"><span>RECETAS</span>
+
+<h2>Educational television during COVID-19</h2>
+
+<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
+
+<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 post All-mobile tecnologia-mobile" data-category="tecnologia">
+<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
+
+<div class="text"><span>TECNOLOG&Iacute;A</span>
+
+<h2>Educational television during COVID-19</h2>
+
+<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
+
+<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 post All-mobile hogarcocina-mobile" data-category="hogarcocina">
+<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
+
+<div class="text"><span>HOGAR</span>
+
+<h2>Educational television during COVID-19</h2>
+
+<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
+
+<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 post All-mobile ideasconsejos-mobile" data-category="ideasconsejos">
+<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
+
+<div class="text"><span>IDEAS</span>
+
+<h2>Educational television during COVID-19</h2>
+
+<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
+
+<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-8 post All-mobile tendencias-mobile" data-category="tendencias">
+<div class="box_related_content oustanding"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
+
+<div class="text">
+<div class="row d-flex">
+<div class="col-md-7"><span>TENDENCIAS</span>
+
+<h2>Educational television during COVID-19</h2>
+
+<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.Countries around the world have responded to lorem</p>
+</div>
+
+<div class="col-md-5 d-flex"><img alt="logo" src="https://images.notifications-icommkt.com/logos/kalley_h.jpg" /></div>
+</div>
+
+<p class="author_date">By Jon Doe | 12 Junio 2020</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 post All-mobile recetas-mobile" data-category="recetas">
+<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
+
+<div class="text"><span>RECETAS</span>
+
+<h2>Educational television during COVID-19</h2>
+
+<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
+
+<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 post All-mobile tecnologia-mobile" data-category="tecnologia">
+<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
+
+<div class="text"><span>TECNOLOG&Iacute;A</span>
+
+<h2>Educational television during COVID-19</h2>
+
+<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
+
+<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 post All-mobile tutoriales-mobile" data-category="tutoriales">
+<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
+
+<div class="text"><span>TUTORIALES</span>
+
+<h2>Educational television during COVID-19</h2>
+
+<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
+
+<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 <div id="footer-kalley-blog"></div>
 <script>
 	function ul(index) {
@@ -494,6 +552,31 @@
 		}
 	}
 
+	const categoryTitle = document.querySelectorAll('.filters-mobile label');
+	const allCategoryPosts = document.querySelectorAll('.post');
+
+	for(let i = 0; i < categoryTitle.length; i++){
+    	categoryTitle[i].addEventListener('click', filterPosts.bind(this, categoryTitle[i]));
+	}
+
+	function filterPosts(item){
+    	changeActivePosition(item);
+    	//const dataCategory = document.querySelectorAll('data-category-mobile');
+    	for(let i = 0; i < allCategoryPosts.length; i++){
+        	if(allCategoryPosts[i].classList.contains(item.attributes.id.value)){
+            	allCategoryPosts[i].style.display = "block";
+        	} else {
+            	allCategoryPosts[i].style.display = "none";
+        	}
+    	}
+	}
+	function changeActivePosition(activeItem){
+    for(let i = 0; i < categoryTitle.length; i++){
+        categoryTitle[i].classList.remove('active');
+    }
+    activeItem.classList.add('active');
+	};
+
 	window.addEventListener("load", function (o) {
        $(window).scroll(() => {
             (topOfFooter = $("#footer-kalley-blog").position().top),
@@ -502,7 +585,7 @@
                 scrollDistanceFromTopOfDoc > topOfFooter ? $(".lat-menu").css("margin-top", 0 - scrollDistanceFromTopOfFooter) : $(".lat-menu").css("margin-top", 0);
         })
        	$(window).scroll(function () {
-            $(this).scrollTop() > $("#banners-carousel").outerHeight() + $(".js-mainHeader").height() ? ($(".lat-menu").addClass("sticky"), $(".animation-element").addClass("in-view")) : ($(".lat-menu").removeClass("sticky"), $(".animation-element").removeClass("in-view"));
+            $(this).scrollTop() > $(".carousel__rotativeBanner").outerHeight() + $(".js-mainHeader").height() ? ($(".lat-menu").addClass("sticky"), $(".animation-element").addClass("in-view")) : ($(".lat-menu").removeClass("sticky"), $(".animation-element").removeClass("in-view"));
         });
         $(window).scroll(function () {
             $(this).scrollTop() > $(".js-mainHeader").height() ? ($("#scrollable-menu").addClass("sticky"), $(".animation-element").addClass("in-view")) : ($("#scrollable-menu").removeClass("sticky"), $(".animation-element").removeClass("in-view"));
