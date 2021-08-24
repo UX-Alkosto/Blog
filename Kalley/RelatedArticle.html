@@ -258,6 +258,68 @@
 	.owl-next {
 	    right: 2em !important;
 	}
+	.the-image-content {
+		background-color: rgb(6 59 102 / 45%);
+		border-radius: 55px;
+	    color: white;
+	    display: flex;
+	    height: 100%;
+	    left: 0;
+	    margin-left: auto;
+    	margin-right: auto;
+    	padding: 5em;
+	    position: absolute;
+	    right: 0;	    
+	    top: 0;
+	    width: calc(100% - 6em);
+	}
+	.the-image-content h2 {
+	    font-size: 40px;
+	    margin-bottom: 1em;
+	}
+	.the-image-content p {
+	    font-size: 20px;
+	    margin-bottom: 4em;
+	    -webkit-line-clamp: 4;
+    	-webkit-box-orient: vertical;
+	}
+	.the-image-content a {
+		border-radius: var(--button-radius);
+		cursor: pointer;
+		display: inline-block;
+		font-size: 20px;
+	    font-weight: 700;
+	    padding: 0.75em;
+	    text-align: center;
+	    -webkit-transition: all 0.3s ease;                  
+	    -moz-transition: all 0.3s ease;                 
+	    -o-transition: all 0.3s ease;   
+	    -ms-transition: all 0.3s ease;          
+	    transition: all 0.3s ease;
+	    width: 225px;	    
+	}
+	.the-image-content .row{
+		display: flex;
+    	align-items: center;
+	}
+	.active-button-block {
+	    color: var(--primary-color2);
+	    background-color: var(--alert-background-color-info);
+	    margin-right: 1em;
+	    border: 2px solid var(--alert-background-color-info);	    
+	}
+	.the-image-content a:hover {
+	    color: white;
+	    background-color: var(--primary-color2);
+	    border-color: var(--primary-color2);
+	}
+	.outline-button-block {
+	    color: white;
+	    border: 2px solid white;
+	}
+	.carousel__rotativeBanner .banner-adglare {
+		width: 100%;
+	}
 	@media screen and (max-width: 1400px){
 		#menu-blog li{
 			padding: 0.5em;
@@ -275,6 +337,9 @@
 		.owl-carousel .owl-item img {
     		max-height: 450px !important
     	}
+    	.carousel__rotativeBanner .owl-carousel .owl-dots {
+		    top: 77%;
+		}
 	}
 	@media screen and (max-width: 1280px){
 		#menu-blog li {
@@ -284,6 +349,10 @@
 		.carousel__rotativeBanner .owl-carousel .owl-dots {
 			top: 73%;
 		}
+		.the-image-content p {
+			font-size: 18px;
+		    margin-bottom: 3em;
+		}
 	}
 	@media screen and (max-width: 1199px){
 		.box_related_content button{
@@ -291,6 +360,10 @@
 		}
 	}
 	@media screen and (max-width: 1007px){
+		.the-image-content {
+		   border-radius: 0;
+		   width: 100%;
+		}
 		.carousel__rotativeBanner .owl-carousel .owl-dots {
 		    top: 0;
 		    position: relative;
@@ -356,6 +429,24 @@
 		}
 	}
 	@media screen and (max-width: 767px){
+		.the-image-content{
+			padding: 2em;
+		}
+		.the-image-content h2 {
+    		font-size: 32px;
+    		margin-top: 0;
+    	}
+    	.the-image-content p {
+		    font-size: 14px;
+		    margin-bottom: 2em;
+		}
+		.the-image-content a {
+		    font-size: 18px;
+		    width: 210px;
+		}
+		.outline-button-block {
+    		display: none !important;
+    	}
 		.box_related_content p{
 			-webkit-line-clamp: 2;
 		}
@@ -391,6 +482,19 @@
 		.filters-mobile{
 			padding: 9px;
 		}
+		.owl-dots{
+			padding-left: 1.5em !important;
+		}
+		.the-image-content h2 {
+			margin-bottom: 0.5em;
+		}
+		.the-image-content a {
+			padding: 0.6em;
+			width: 190px;
+		}
+		.the-image-content p{
+			-webkit-line-clamp: 3;
+		}
 	}
 </style>
 <div class="row container-blog-mobile">
@@ -410,13 +514,20 @@
 
 
 
-<div id="banners-carousel"><p>Aquí va un carrusel de banners</p></div>
+<img alt="main-banner" src="https://cdn.alkst.co/t64b0c479/img/474xt_svnba2_e82e466d.jpg">
 <div class="the-image-content">
-    <h2>El nuevo blog de kalley está al aire</h2><p>Encuentra aqui toda la informacuon, recetas, tutoriales has de este tu espacio
-</p>
-    <a></a>
-    <a></a>
+    <div class="row ">
+        <div class="col-md-8">
+    <h2>Educational television during COVID-19</h2>
+    <p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
+    <a class="active-button-block">Leer más</a>
+    <a class="outline-button-block">Recetas</a>
+        </div>
+    </div>
 </div>
+
+
+
 
 <div class="row container-blog"><input checked="checked" id="All" name="categories" type="radio" value="All" /> <input id="recetas" name="categories" type="radio" value="recetas" /> <input id="tecnologia" name="categories" type="radio" value="tecnologia" /> <input id="hogarcocina" name="categories" type="radio" value="hogarcocina" /> <input id="ideasconsejos" name="categories" type="radio" value="ideasconsejos" /> <input id="tendencias" name="categories" type="radio" value="tendencias" /> <input id="tutoriales" name="categories" type="radio" value="tutoriales" />
 <div class="col-md-2 lat-menu" data-sticky="">
