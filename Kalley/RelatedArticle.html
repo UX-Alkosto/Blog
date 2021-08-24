@@ -1,520 +1,3 @@
-<script type="module" src="https://cdn.jsdelivr.net/gh/ux-alkosto/webcomponents/dist/components.js"></script>
-<style type="text/css">.box_related_content{
-		margin: 2em 0;
-		background: white;
-		border-radius: 29px;
-		width: 100%;
-		-webkit-box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.16);
-		-moz-box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.16);
-		box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.16);
-	}
-
-	.box_related_content button {
-		z-index: 1;
-		min-width: 180px;
-		padding: 0.75em;
-		border: 3px solid white;
-		border-radius: 30px;
-		background: #063B66;
-		color: white;
-		font-size: 15px;
-		font-weight: bold;
-		position: absolute;
-		right: 2em;
-		top: 175px;
-	}
-	.box_related_content button:hover{
-		background:#0F5D68;
-	}
-	.box_related_content span{
-		color: #F9C332;
-		display: inline-block;
-		font-size: 13px;
-		font-weight: bold;
-		line-height: 17px;
-		margin: 20px 0 0 0;		
-	}
-	.box_related_content h2{
-		max-width: 380px;
-	    color: #373435;
-	    font-size: 20px;
-	    font-weight: bold;
-	    line-height: 26px;
-	    margin-top: 0.5em;
-	    margin-bottom: 0.75em;
-	}
-	.box_related_content p{		
-		overflow: hidden;
-		display: -webkit-box;
-		-webkit-line-clamp: 4;
-		-webkit-box-orient: vertical;
-		color: #373435;
-		font-size: 13px;
-		font-weight: medium;
-		line-height: 18apx;
-	}
-	.box_related_content .author_date{
-		color: #959595;
-		font-size: 12px;
-		font-weight: medium;
-		line-height: 17px;
-		text-align: right;
-		margin-bottom: 0;
-	}
-	.box_related_content img{
-		border-radius: var(--button-radius,28px) var(--button-radius,28px) 0 0;
-    	margin-bottom: 10px;
-    	object-fit: cover;
-    	width: 100%;
-    	height: 180px;
-	}
-	.box_related_content .text{
-		padding: 0 1.75em 1.75em 1.75em;	
-	}
-	.img-fluid{
-		width: 100%;
-	}
-	.related_articles{
-		max-width: 1366px;
-		margin: 0 auto;
-		width: 100%;
-	}
-	.text img{
-		max-height: 150px;
-		width: auto;
-		margin: auto;
-		display: block;
-		height: inherit !important;
-	}
-	.text .row.d-flex{
-		flex-direction: row;
-	}
-	#menu-blog {
-		position: sticky;
-		position: -webkit-sticky;
-		box-sizing: border-box;
-		top: 0
-	}
-	#menu-blog li {
-		font-size: 16px;
-		color: #5C5C5C;
-		padding: 1em;
-		margin: 0.5em;
-	}
-	#menu-blog li label {
-		cursor: pointer;
-	}
-	.lat-menu input[type="radio"] {
-	position: absolute;
-	left: -9999px;
-	}
-	[value="All"]:checked ~ .tab-categories .posts [data-category] {
-	display: block;
-	}
-	[value="All-mobile"]:checked > .content .tab-categories .posts [data-category] {
-	display: block;
-	}
-	[value="tecnologia"]:checked ~ .tab-categories .posts .post:not([data-category~="tecnologia"]),
-	[value="recetas"]:checked ~ .tab-categories .posts .post:not([data-category~="recetas"]),
-	[value="hogarcocina"]:checked ~ .tab-categories .posts .post:not([data-category~="hogarcocina"]),
-	[value="ideasconsejos"]:checked ~ .tab-categories .posts .post:not([data-category~="ideasconsejos"]),
-	[value="tendencias"]:checked ~ .tab-categories .posts .post:not([data-category~="tendencias"]),
-	[value="tutoriales"]:checked ~ .tab-categories .posts .post:not([data-category~="tutoriales"]){
-		display: none;
-	}
-	label.active,
-	[value="All"]:checked ~ .lat-menu .filters [for="All"],
-	[value="tecnologia"]:checked ~ .lat-menu .filters [for="tecnologia"],
-	[value="recetas"]:checked ~ .lat-menu .filters [for="recetas"],
-	[value="hogarcocina"]:checked ~ .lat-menu .filters [for="hogarcocina"],
-	[value="ideasconsejos"]:checked ~ .lat-menu .filters [for="ideasconsejos"],
-	[value="tendencias"]:checked ~ .lat-menu .filters [for="tendencias"],
-	[value="tutoriales"]:checked ~ .lat-menu .filters [for="tutoriales"]{
-	font-weight: bold;
-	color: #121A82;
-	}
-	:root {
-		--underline-height: .5em;
-		--transition-duration : .5s;
-	}
-	.black {
-		border-left: 1px solid #959595;
-		position: relative;
-		white-space: nowrap;
-		background: white;
-		padding: var(--underline-height) 0;
-		margin: 2em 0;
-		box-shadow: 0 1em 2em rgba(black, .05);
-	}
-	.black .underline{		
-		background: #121A82;
-		border-radius: .25em;
-		mix-blend-mode: initial;
-	}
-
-	.underline {
-		display: block;
-		position: absolute;
-		z-index: 0;
-		top: 0;
-		left: -1.5px;
-		height: 20%;
-		width: 3px;
-		background: black;
-		transition: transform var(--transition-duration) ease-in-out;
-	}
-
-	.underline:nth-child(1) {
-		transition: calc(var(--transition-duration) * .8);
-	}
-	.underline:nth-child(2) {
-		transition: calc(var(--transition-duration) * 1.2);
-	}
-	.container-blog {
-		width: 100%;
-		max-width: 1400px;
-		margin: 0 auto;
-	}
-	#footer-kalley-blog{
-		height: 24px;
-		width: 100%;
-	}
-	.lat-menu{
-	/*	position: absolute;*/
-	}
-	.tab-categories {
-	    min-height: 555px;
-	    float: right;
-	}
-	.sticky {
-	    position: fixed;
-	    top: 150px;
-	}
-	#banners-carousel{
-		height: 720px;
-	    max-width: 1800px;
-	    width: calc(100% - 8em);
-	    background: #121a82;
-	    padding: 0;
-	    display: block;
-	    margin: 0 auto;
-	    color: white;
-	    font-size: 32px;
-	    padding: 8em;
-	    text-align: center;
-	}
-	.filters-mobile {
-		overflow: auto;
-    	white-space: nowrap;
-    	padding: 9px 0;
-    	border-bottom: 1px solid #959595;
-	}
-	.filters-mobile li {
-		display: inline-block;
-		padding: 0 2em;
-		text-align: center;
-	}
-	.container-blog-mobile{
-			display: none;
-	}
-	.carousel__rotativeBanner .owl-carousel .owl-dots {
-		display: block;
-	    position: absolute;
-	    top: 80%;
-	    right: 6em;
-	}
-	.owl-carousel .owl-dots .owl-dot {
-		width: 28px;
-		display: block;
-	}
-	.owl-carousel .owl-dots .owl-dot span {
-		width: 22px;
-		height: 22px;
-	}
-	.owl-carousel .owl-dots .active span {
-	    background-color: var(--primary-color1) !important;
-	}
-	.owl-carousel .owl-dots .owl-dot span {
-		background-color: white;
-	}
-	.owl-carousel .owl-item img {
-		max-height: 645px !important;
-    	border-radius: 55px;
-    	object-fit: cover;
-    	width: calc(100% - 6em) !important;
-    	margin: 0 auto;
-	}
-	.module-title {
-		margin: 0 10% .7em 10%;
-	}
-	.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
-		width: 50px;
-		height: 50px;
-		border-radius: 26px;
-	}
-	.owl-prev {
-	    left: 2em !important;
-	}
-	.owl-next {
-	    right: 2em !important;
-	}
-	.the-image-content {
-		background-color: rgb(6 59 102 / 45%);
-		border-radius: 55px;
-	    color: white;
-	    display: flex;
-	    height: 100%;
-	    left: 0;
-	    margin-left: auto;
-    	margin-right: auto;
-    	padding: 5em;
-	    position: absolute;
-	    right: 0;	    
-	    top: 0;
-	    width: calc(100% - 6em);
-	}
-	.the-image-content h2 {
-	    font-size: 40px;
-	    margin-bottom: 1em;
-	}
-	.the-image-content p {
-	    font-size: 20px;
-	    margin-bottom: 4em;
-	    -webkit-line-clamp: 4;
-    	-webkit-box-orient: vertical;
-	}
-	.the-image-content a {
-		border-radius: var(--button-radius);
-		cursor: pointer;
-		display: inline-block;
-		font-size: 20px;
-	    font-weight: 700;
-	    padding: 0.75em;
-	    text-align: center;
-	    -webkit-transition: all 0.3s ease;                  
-	    -moz-transition: all 0.3s ease;                 
-	    -o-transition: all 0.3s ease;   
-	    -ms-transition: all 0.3s ease;          
-	    transition: all 0.3s ease;
-	    width: 225px;	    
-	}
-	.the-image-content .row{
-		display: flex;
-    	align-items: center;
-	}
-	.active-button-block {
-	    color: var(--primary-color2);
-	    background-color: var(--alert-background-color-info);
-	    margin-right: 1em;
-	    border: 2px solid var(--alert-background-color-info);	    
-	}
-	.the-image-content a:hover {
-	    color: white;
-	    background-color: var(--primary-color2);
-	    border-color: var(--primary-color2);
-	}
-	.outline-button-block {
-	    color: white;
-	    border: 2px solid white;
-	}
-	.carousel__rotativeBanner .banner-adglare {
-		width: 100%;
-	}
-	@media screen and (max-width: 1400px){
-		#menu-blog li{
-			padding: 0.5em;
-			font-size: 15px;
-		}
-		.box_related_content img {
-    		height: 150px;
-    	}
-    	.box_related_content button{
-    		top: 150px;
-    	}
-    	.module-title {
-		    margin: 0 2% .7em 2%;
-		}
-		.owl-carousel .owl-item img {
-    		max-height: 450px !important
-    	}
-    	.carousel__rotativeBanner .owl-carousel .owl-dots {
-		    top: 77%;
-		}
-	}
-	@media screen and (max-width: 1280px){
-		#menu-blog li {
-			font-size: 14px;
-			padding: 0.5em;
-		}
-		.carousel__rotativeBanner .owl-carousel .owl-dots {
-			top: 73%;
-		}
-		.the-image-content p {
-			font-size: 18px;
-		    margin-bottom: 3em;
-		}
-	}
-	@media screen and (max-width: 1199px){
-		.box_related_content button{
-			top: 125px;
-		}
-	}
-	@media screen and (max-width: 1007px){
-		.the-image-content {
-		   border-radius: 0;
-		   width: 100%;
-		}
-		.carousel__rotativeBanner .owl-carousel .owl-dots {
-		    top: 0;
-		    position: relative;
-		    right: 0;
-		    display: flex;
-		    align-items: flex-start;
-		    justify-content: end;
-		}
-		h1.module-title {
-		    margin-bottom: 0.25em !important;
-		}
-		#scrollable-menu {
-		    z-index: 3;
-		    background: white;
-		    width: 100%;
-		    padding: 0 0;
-    		left: 0;
-		}
-		.sticky{
-			top: 0;
-		}
-		.lat-menu {
-			display: none;
-		}
-		.container-blog-mobile{
-			display: block;
-		}
-		#first.related_articles {
-			margin-top: 1em !important;
-		}
-		.box_related_content button{
-			right: 8em;
-		}
-		.box_related_content {
-			max-width: 767px;
-			margin: 2em auto;
-		}
-		.box_related_content .image {
-			position: relative;
-		}
-		.tab-categories {
-			float: inherit;
-		}
-		.owl-carousel .owl-dots .owl-dot span {
-			width: 21px;
-		    height: 21px;
-		    background-color: #E0E0E0;
-		    margin: 0 4px !important;
-		}
-		.owl-carousel .owl-item img {    
-    		border-radius: 0;
-    		width: 100% !important;
-    	}
-    	.owl-carousel.rotativeBanner .owl-nav button.owl-next, .owl-carousel.rotativeBanner .owl-nav button.owl-prev {
-		    background: white !important;		    
-		    border-radius: 90px;	    
-		    width: 45px;
-		    height: 45px;
-		}
-		.owl-prev {
-		    left: inherit !important;
-		    right: 6em;
-		}
-	}
-	@media screen and (max-width: 767px){
-		.the-image-content{
-			padding: 2em;
-		}
-		.the-image-content h2 {
-    		font-size: 32px;
-    		margin-top: 0;
-    	}
-    	.the-image-content p {
-		    font-size: 14px;
-		    margin-bottom: 2em;
-		}
-		.the-image-content a {
-		    font-size: 18px;
-		    width: 210px;
-		}
-		.outline-button-block {
-    		display: none !important;
-    	}
-		.box_related_content p{
-			-webkit-line-clamp: 2;
-		}
-		.text img {
-			max-height: 40px;
-		}
-		.box_related_content button{
-			right: 2em;
-		}
-	}
-	@media screen and (max-width: 650px){
-		.owl-carousel.rotativeBanner .owl-nav button.owl-next, .owl-carousel.rotativeBanner .owl-nav button.owl-prev {	
-			    width: 30px;
-			    height: 30px;
-			}
-		.owl-carousel .owl-nav button.owl-next:before, .owl-carousel .owl-nav button.owl-prev:before {
-			font-size:40px;
-		}
-		.owl-carousel .owl-item img {
-    		min-height: 370px;
-    	}
-	}
-	@media screen and (max-width: 580px){
-		.text .row.d-flex {
-			flex-direction: column;
-		}
-		.text img {
-			margin: 2em auto;
-		}
-		.filters-mobile li {
-			padding: 0 1em;
-		}
-		.filters-mobile{
-			padding: 9px;
-		}
-		.owl-dots{
-			padding-left: 1.5em !important;
-		}
-		.the-image-content h2 {
-			margin-bottom: 0.5em;
-		}
-		.the-image-content a {
-			padding: 0.6em;
-			width: 190px;
-		}
-		.the-image-content p{
-			-webkit-line-clamp: 3;
-		}
-	}
-</style>
-<div class="row container-blog-mobile">
-	<div class="col-md-12" id="scrollable-menu">
-		<ul class="filters-mobile">
-			<li><label id="All-mobile" class="active">VER TODO</label></li>
-			<li><label id="recetas-mobile">RECETAS</label></li>
-			<li><label id="tecnologia-mobile">TECNOLOG&Iacute;A</label></li>
-			<li><label id="hogarcocina-mobile">HOGAR</label></li>
-			<!--li><label id="ideasconsejos-mobile">IDEAS</label></li-->
-			<!--li><label id="tendencias-mobile">TENDENCIAS</label></li-->
-			<li><label id="tutoriales-mobile">TUTORIALES</label></li>
-		</ul>
-	</div>
-</div>
-
-
-
-
-
 <div class="row container-blog">
 	<input checked="checked" id="All" name="categories" type="radio" value="All" />
 	<input id="recetas" name="categories" type="radio" value="recetas" />
@@ -561,100 +44,69 @@
 			        n.parentNode.insertBefore(s, n);
 			    })('script',document,'//engine.alkst.co/?439558627');
 			</script>
-
-<div class="col-lg-4 post All-mobile hogarcocina-mobile" data-category="hogarcocina">
-<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
-
-<div class="text"><span>HOGAR</span>
-
-<h2>Educational television during COVID-19</h2>
-
-<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-
-<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
+			<!-- AdGlare: KALL-BLOG-CARD-3 -->
+			<span id=zone842826300></span>
+			<script>
+			    (function(r,d,u) {
+			        var s = d.createElement(r); s.async = true;
+			        u += '&cb=' + Date.now() + Math.random();       
+			        s.src = u; var n = d.getElementsByTagName(r)[0];
+			        n.parentNode.insertBefore(s, n);
+			    })('script',document,'//engine.alkst.co/?842826300');
+			</script>
+			<!-- AdGlare: KALL-BLOG-CARD-4 -->
+			<span id=zone839638015></span>
+			<script>
+			    (function(r,d,u) {
+			        var s = d.createElement(r); s.async = true;
+			        u += '&cb=' + Date.now() + Math.random();       
+			        s.src = u; var n = d.getElementsByTagName(r)[0];
+			        n.parentNode.insertBefore(s, n);
+			    })('script',document,'//engine.alkst.co/?839638015');
+			</script>
+			<!-- AdGlare: KALL-BLOG-CARD-DTDO -->
+			<span id=zone400588701></span>
+			<script>
+			    (function(r,d,u) {
+			        var s = d.createElement(r); s.async = true;
+			        u += '&cb=' + Date.now() + Math.random();       
+			        s.src = u; var n = d.getElementsByTagName(r)[0];
+			        n.parentNode.insertBefore(s, n);
+			    })('script',document,'//engine.alkst.co/?400588701');
+			</script>
+			<!-- AdGlare: KALL-BLOG-CARD-5 -->
+			<span id=zone162741533></span>
+			<script>
+			    (function(r,d,u) {
+			        var s = d.createElement(r); s.async = true;
+			        u += '&cb=' + Date.now() + Math.random();       
+			        s.src = u; var n = d.getElementsByTagName(r)[0];
+			        n.parentNode.insertBefore(s, n);
+			    })('script',document,'//engine.alkst.co/?162741533');
+			</script>
+			<!-- AdGlare: KALL-BLOG-CARD-6 -->
+			<span id=zone214859499></span>
+			<script>
+			    (function(r,d,u) {
+			        var s = d.createElement(r); s.async = true;
+			        u += '&cb=' + Date.now() + Math.random();       
+			        s.src = u; var n = d.getElementsByTagName(r)[0];
+			        n.parentNode.insertBefore(s, n);
+			    })('script',document,'//engine.alkst.co/?214859499');
+			</script>
+			<!-- AdGlare: KALL-BLOG-CARD-7 -->
+			<span id=zone345881631></span>
+			<script>
+			    (function(r,d,u) {
+			        var s = d.createElement(r); s.async = true;
+			        u += '&cb=' + Date.now() + Math.random();       
+			        s.src = u; var n = d.getElementsByTagName(r)[0];
+			        n.parentNode.insertBefore(s, n);
+			    })('script',document,'//engine.alkst.co/?345881631');
+			</script>
+		</div>
+	</div>
 </div>
-</div>
-</div>
-
-<div class="col-lg-4 post All-mobile ideasconsejos-mobile" data-category="ideasconsejos">
-<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
-
-<div class="text"><span>IDEAS</span>
-
-<h2>Educational television during COVID-19</h2>
-
-<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-
-<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-</div>
-</div>
-</div>
-
-<div class="col-lg-8 post All-mobile tendencias-mobile" data-category="tendencias">
-<div class="box_related_content oustanding"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
-
-<div class="text">
-<div class="row d-flex">
-<div class="col-md-7"><span>TENDENCIAS</span>
-
-<h2>Educational television during COVID-19</h2>
-
-<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.Countries around the world have responded to lorem</p>
-</div>
-
-<div class="col-md-5 d-flex"><img alt="logo" src="https://images.notifications-icommkt.com/logos/kalley_h.jpg" /></div>
-</div>
-
-<p class="author_date">By Jon Doe | 12 Junio 2020</p>
-</div>
-</div>
-</div>
-
-<div class="col-lg-4 post All-mobile recetas-mobile" data-category="recetas">
-<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
-
-<div class="text"><span>RECETAS</span>
-
-<h2>Educational television during COVID-19</h2>
-
-<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-
-<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-</div>
-</div>
-</div>
-
-<div class="col-lg-4 post All-mobile tecnologia-mobile" data-category="tecnologia">
-<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
-
-<div class="text"><span>TECNOLOG&Iacute;A</span>
-
-<h2>Educational television during COVID-19</h2>
-
-<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-
-<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-</div>
-</div>
-</div>
-
-<div class="col-lg-4 post All-mobile tutoriales-mobile" data-category="tutoriales">
-<div class="box_related_content"><img alt="" loading="lazy" src="https://cdn.statically.io/img/ux-alkosto.github.io/f=auto,q=75/webcomponents/assets/images/img-familia-carro.png" /><button>LEER M&Aacute;S...</button>
-
-<div class="text"><span>TUTORIALES</span>
-
-<h2>Educational television during COVID-19</h2>
-
-<p>Countries around the world have responded to coronavirus (COVID19) driven school closures by adopting remote learning approaches.</p>
-
-<p class="author_date">By Jhon Doe | 12 Junio 2020</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
 <div id="footer-kalley-blog"></div>
 <script>
 	function ul(index) {
@@ -668,7 +120,7 @@
 	}
 
 	const categoryTitle = document.querySelectorAll('.filters-mobile label');
-	const allCategoryPosts = document.querySelectorAll('.post');
+	//const allCategoryPosts = document.querySelectorAll('span .post');
 
 	for(let i = 0; i < categoryTitle.length; i++){
     	categoryTitle[i].addEventListener('click', filterPosts.bind(this, categoryTitle[i]));
@@ -676,12 +128,11 @@
 
 	function filterPosts(item){
     	changeActivePosition(item);
-    	//const dataCategory = document.querySelectorAll('data-category-mobile');
-    	for(let i = 0; i < allCategoryPosts.length; i++){
-        	if(allCategoryPosts[i].classList.contains(item.attributes.id.value)){
-            	allCategoryPosts[i].style.display = "block";
+    	for(let i = 0; i < document.querySelectorAll('span .post').length; i++){
+        	if(document.querySelectorAll('span .post')[i].classList.contains(item.attributes.id.value)){
+            	document.querySelectorAll('span .post')[i].style.display = "block";
         	} else {
-            	allCategoryPosts[i].style.display = "none";
+            	document.querySelectorAll('span .post')[i].style.display = "none";
         	}
     	}
 	}
