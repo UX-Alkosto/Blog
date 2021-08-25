@@ -284,8 +284,10 @@
 	    margin-bottom: 1em;
 	}
 	.the-image-content p {
+		display: -webkit-box;
 	    font-size: 20px;
 	    margin-bottom: 4em;
+	    overflow: hidden;
 	    -webkit-line-clamp: 4;
     	-webkit-box-orient: vertical;
 	}
@@ -366,6 +368,22 @@
 		}
 	}
 	@media screen and (max-width: 1007px){
+		.underline-mobile {
+			display: none;
+		    height: 3px;
+		    width: 100%;
+		    background: #121A82;
+		    position: relative;
+		    left: 0;
+		    margin-bottom: -3px;
+		    top: 30px;
+		}
+		.active .underline-mobile {
+			display: block;
+		}
+		.filters-mobile a {
+			color: inherit;
+		}
 		.the-image-content {
 		   border-radius: 0;
 		   width: 100%;
@@ -506,13 +524,13 @@
 <div class="row container-blog-mobile">
 	<div class="col-md-12" id="scrollable-menu">
 		<ul class="filters-mobile">
-			<li><label id="All-mobile" class="active">VER TODO</label></li>
-			<li><label id="recetas-mobile">RECETAS</label></li>
-			<li><label id="tecnologia-mobile">TECNOLOG&Iacute;A</label></li>
-			<li><label id="hogarcocina-mobile">HOGAR</label></li>
-			<!--li><label id="ideasconsejos-mobile">IDEAS</label></li-->
-			<!--li><label id="tendencias-mobile">TENDENCIAS</label></li-->
-			<li><label id="tutoriales-mobile">TUTORIALES</label></li>
+			<a href="#arrival"><li><label id="All-mobile" class="active"><div class="underline-mobile"></div>VER TODO</label></li></a>
+			<a href="#arrival"><li><label id="recetas-mobile"><div class="underline-mobile"></div>RECETAS</label></li></a>
+			<a href="#arrival"><li><label id="tecnologia-mobile"><div class="underline-mobile"></div>TECNOLOG&Iacute;A</label></li></a>
+			<a href="#arrival"><li><label id="hogarcocina-mobile"><div class="underline-mobile"></div>HOGAR</label></li></a>
+			<!--a href="#arrival"><li><label id="ideasconsejos-mobile"><div class="underline-mobile"></div>IDEAS</label></li></a-->
+			<!--a href="#arrival"><li><label id="tendencias-mobile"><div class="underline-mobile"></div>TENDENCIAS</label></li></a-->
+			<a href="#arrival"><li><label id="tutoriales-mobile"><div class="underline-mobile"></div>TUTORIALES</label></li></a>
 		</ul>
 	</div>
 </div>
