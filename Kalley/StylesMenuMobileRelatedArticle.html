@@ -45,9 +45,9 @@
 	    color: #373435;
 	    font-size: 20px;
 	    font-weight: bold;
-	    line-height: 26px;
-	    margin-top: 0.5em;
-	    margin-bottom: 0.75em;
+	    line-height: 24px !important; 
+	    margin-top: 0.5em !important;
+	    margin-bottom: 0.75em !important;
 	}
 	.box_related_content p{		
 		overflow: hidden;
@@ -55,14 +55,15 @@
 		-webkit-line-clamp: 4;
 		-webkit-box-orient: vertical;
 		color: #373435;
-		font-size: 13px;
-		font-weight: medium;
-		line-height: 18apx;
+		font-size: 14px;
+		font-weight: initial;
+		line-height: 20px;
+		margin-bottom: 1em;
 	}
 	.box_related_content .author_date{
 		color: #959595;
 		font-size: 12px;
-		font-weight: medium;
+		font-weight: 500 !important;
 		line-height: 17px;
 		text-align: right;
 		margin-bottom: 0;
@@ -254,9 +255,9 @@
 		margin: 0 10% .7em 10%;
 	}
 	.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
-		width: 50px;
-		height: 50px;
-		border-radius: 26px;
+		width: 50px !important;
+		height: 50px !important;
+		border-radius: 26px !important;
 	}
 	.owl-prev {
 	    left: 2em !important;
@@ -280,8 +281,9 @@
 	    width: calc(100% - 6em);
 	}
 	.the-image-content h2 {
-	    font-size: 40px;
-	    margin-bottom: 1em;
+	    font-size: 32px !important;
+	    line-height: 40px !important;
+	    margin-bottom: 0.5em !important;
 	}
 	.the-image-content p {
 		display: -webkit-box;
@@ -327,6 +329,12 @@
 	}
 	.carousel__rotativeBanner .banner-adglare {
 		width: 100%;
+	}
+	.pageType-ContentPage:not(.page-homepage) .the-image-content h2 {
+	    color: white!important;	    
+	}
+	.pageType-ContentPage:not(.page-homepage) h2{
+		font-weight: bold !important;
 	}
 	@media screen and (max-width: 1400px){
 		#menu-blog li{
@@ -394,7 +402,7 @@
 		    right: 0;
 		    display: flex;
 		    align-items: flex-start;
-		    justify-content: end;
+		    justify-content: start;
 		}
 		h1.module-title {
 		    margin-bottom: 0.25em !important;
@@ -443,13 +451,13 @@
     	}
     	.owl-carousel.rotativeBanner .owl-nav button.owl-next, .owl-carousel.rotativeBanner .owl-nav button.owl-prev {
 		    background: white !important;		    
-		    border-radius: 90px;	    
-		    width: 45px;
-		    height: 45px;
+		    border-radius: 90px !important;	    
+		    width: 45px !important;
+		    height: 45px !important;
 		}
 		.owl-prev {
 		    left: inherit !important;
-		    right: 6em;
+		    right: 6em !important;
 		}
 	}
 	@media screen and (max-width: 767px){
@@ -457,7 +465,8 @@
 			padding: 2em;
 		}
 		.the-image-content h2 {
-    		font-size: 32px;
+    		font-size: 24px !important;
+    		line-height: 30px !important;
     		margin-top: 0;
     	}
     	.the-image-content p {
@@ -483,11 +492,11 @@
 	}
 	@media screen and (max-width: 650px){
 		.owl-carousel.rotativeBanner .owl-nav button.owl-next, .owl-carousel.rotativeBanner .owl-nav button.owl-prev {	
-			    width: 30px;
-			    height: 30px;
+			    width: 30px !important;
+			    height: 30px !important;
 			}
 		.owl-carousel .owl-nav button.owl-next:before, .owl-carousel .owl-nav button.owl-prev:before {
-			font-size:40px;
+			font-size:26px !important;
 		}
 		.owl-carousel .owl-item img {
     		min-height: 370px;
