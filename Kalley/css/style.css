@@ -48,7 +48,7 @@ h1,h2,h3,h4,h5,h6,p,a{
 
 
  .contenedor-img {
-    height: 400px;
+    height: 350px;
     border-radius: 28px;
     overflow: hidden;
     position: relative;
@@ -58,7 +58,7 @@ h1,h2,h3,h4,h5,h6,p,a{
  .img-titulo {
     width: 100%;
     max-width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
  }
 
@@ -73,6 +73,11 @@ h1,h2,h3,h4,h5,h6,p,a{
     font-size: 40px;
     font-weight: bolder;
     margin-top: 0.5em;
+    padding: 16px 0 !important;
+ }
+
+ .subtitulo{
+    margin-bottom: 1.5rem !important;
  }
 
  .subtitulo-principal{
