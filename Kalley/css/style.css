@@ -235,7 +235,31 @@ h1,h2,h3,h4,h5,h6,p,a{
     object-fit: cover;
     width: 100%;
  }
-
+ @media screen and (max-width: 1400px){
+      .box_related_content img {
+        height: 150px;
+      }
+      .box_related_content .button{
+        top: 150px;
+      }
+ }
+ @media screen and (max-width: 1199px){
+    .box_related_content .button{
+      top: 125px;
+    }
+  }
+  @media screen and (max-width: 1007px){
+    .box_related_content .button{
+      right: 8em;
+    }
+    .box_related_content {
+      max-width: 767px;
+      margin: 2em auto;
+    }
+    .box_related_content .image {
+      position: relative;
+    }
+  }
  @media screen and (max-width: 767px) {
 
     .card-titulo {
@@ -311,6 +335,12 @@ h1,h2,h3,h4,h5,h6,p,a{
 
     .bg-gris{
        padding: 10px;
+    }
+    .box_related_content p{
+      -webkit-line-clamp: 2;
+    }
+    .box_related_content .button{
+      right: 2em;
     }
 
  }
