@@ -9,6 +9,86 @@ h1,h2,h3,h4,h5,h6,p,a{
 .blog-container{
    margin-bottom: 30px;
 }
+/*Card Styles*/
+.box_related_content{
+    margin: 2em 0;
+    background: white;
+    border-radius: 29px;
+    width: 100%;
+    -webkit-box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.16);
+    box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.16);
+  }
+  .box_related_content .button {
+    z-index: 1;
+    min-width: 180px;
+    padding: 0.75em;
+    border: 3px solid white;
+    border-radius: 30px;
+    background: #063B66;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    right: 2em;
+    text-align: center;
+    top: 175px;
+    -webkit-transition: all 0.3s ease;                  
+      -moz-transition: all 0.3s ease;                 
+      -o-transition: all 0.3s ease;   
+      -ms-transition: all 0.3s ease;          
+      transition: all 0.3s ease;
+  }
+  .box_related_content .button:hover{
+    background:#0F5D68;
+  }
+  .box_related_content span{
+    color: #F9C332;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 17px;
+    margin: 20px 0 0 0;   
+  }
+  .box_related_content h2{
+    max-width: 380px;
+      color: #373435;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 24px !important; 
+      margin-top: 0.5em !important;
+      margin-bottom: 0.75em !important;
+  }
+  .box_related_content p{   
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    color: #373435;
+    font-size: 14px;
+    font-weight: initial;
+    line-height: 20px;
+    margin-bottom: 1em;
+  }
+  .box_related_content .author_date{
+    color: #959595;
+    font-size: 12px;
+    font-weight: 500 !important;
+    line-height: 17px;
+    text-align: right;
+    margin-bottom: 0;
+  }
+  .box_related_content img{
+    border-radius: var(--button-radius,28px) var(--button-radius,28px) 0 0;
+      margin-bottom: 10px;
+      object-fit: cover;
+      width: 100%;
+      height: 180px;
+  }
+  .box_related_content .text{
+    padding: 0 1.75em 1.75em 1.75em;  
+  }
+/*Fin Card Styles*/
 
 .contenedor-ppal {
     width: 100%;
